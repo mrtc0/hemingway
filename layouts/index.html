@@ -2,24 +2,17 @@
 {{ partial "nav" . }}
 <section class="section">
   <div class="container">
+    <div class="article">
+    <ul>
     {{ range sort .Paginator.Pages }}
-    <article>
-      <h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>
-      <h1 class="title"><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Draft }} ::Draft{{ end }}</h1>
-      <div class="content">
-        {{ .Summary | plainify | safeHTML }}
-        {{ if .Truncated }}
-        ...<a class="button is-link" href="{{ .Permalink }}" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        {{ end }}
-      </div>
-    </article>
+    <li>
+      <time class="time">{{ .Date.Format "2006-02-02" }}</time><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Draft }} ::Draft{{ end }}
+    </li>
     {{ end }}
+    </ul>
+    </div>
   </div>
 </section>
 {{ partial "pager" . }}
 {{ partial "footer" . }}
+<script src="http://localhost:1313//js/registerServiceworker.js"></script>
